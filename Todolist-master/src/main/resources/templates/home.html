@@ -1,5 +1,12 @@
 <html>
-	<body>
-		<h1>Hello</h1>
-	</body>
+<body>
+	<h1>Todolist</h1>
+	<div th:each="list : ${lists}">
+		<h3 th:text="${list.name}">List name</h3>
+		<ul>
+			<li th:each="todo: ${listTodos.get(list.getId())}" th:text="${todo.name}">Todo name</li>
+		</ul>
+	</div>
+	
+</body>
 </html>

@@ -1,0 +1,6 @@
+
+<li class="list-group-item"
+	style="display: flex; justify-content: space-between;">
+	<span th:text="${todo.name}">Todo name</span>
+	<span class="remove-todo-btn" th:attr="data-todo-id=${todo.id}">Delete</span>
+</li>

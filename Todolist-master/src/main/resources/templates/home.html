@@ -32,11 +32,19 @@
 							<span class="remove-card-btn" th:attr="data-card-id=${list.id}">Delete</span>
 						</div>
 
-						<ul class="list-group list-group-flush"
-							th:each="todo: ${listTodos.get(list.getId())}">
-							<li th:text="${todo.name}" class="list-group-item">Cras
-								justo odio</li>
+						<ul class="list-group list-group-flush">
+							<li th:each="todo: ${listTodos.get(list.getId())}" class="list-group-item" style="display: flex; justify-content: space-between;">
+								<span th:text="${todo.name}">Todo name</span>
+								<span class="remove-todo-btn" th:attr="data-todo-id=${todo.id}">Delete</span>
+							</li>
 						</ul>
+						
+						<h5 class="add-todo-btn todo-title">Add new todo</h5>
+						<div class="new-todo-group" style="display: none;">
+							<input class="new-todo-title" type="text" />
+							<button type="button" class="new-todo-confirm btn btn-primary btn-sm" th:attr="data-list-id=${list.getId()}">Add</button>
+							<button type="button" class="new-todo-cancel btn btn-light btn-sm">Cancel</button>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.cloudy9101.todolist.models.Todo;
 import com.cloudy9101.todolist.models.TodoRepository;
@@ -19,12 +20,18 @@ public class TodosController {
 	@Autowired
 	private TodoRepository todoRepository;
 	
-	@PostMapping(path="/todos")
-	public @ResponseBody String createTodo (@RequestParam String name) {
+	@PostMapping(path="lists/{listId}/todos")
+	public @ResponseBody ModelAndView createTodo (@PathVariable Integer listId, @RequestParam String name) {
 		Todo todo = new Todo();
+		todo.setListId(listId);
 		todo.setName(name);
 		todoRepository.save(todo);
-		return "Saved";
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("todo", todo);
+		mav.setViewName("todo");
+		
+		return mav;
 	}
 	
 	@PatchMapping(path="/todos/{id}")

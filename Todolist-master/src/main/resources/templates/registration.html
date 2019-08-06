@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>	
+	<div class="container">
+	<form th:action="@{/}" method="get">
+		<button class="login-return" type="submit">Return To Login Page</button>
+	</form><br>
+		<div class="row">
+			<form autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}"
+				method="post">
+			<h2>Sign Up</h2>
+			<div class="form-registration">
+				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></label><br>	
+				<input class="name" type="text" th:field="*{name}" placeholder="First Name"><br>
+			</div>
+			
+			<div class="form-registration">
+				<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></label><br>
+				<input class="email" type="text" th:field="*{email}" placeholder="Email Address"><br>
+			</div>
+			
+			<div class="form-registration">
+				<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red"></label><br>	
+				<input class="password" type="password" th:field="*{password}" placeholder="Password"><br>		
+			</div><br>
+			
+			<div class="form-registration">
+				<button class="submit" type="submit">Sign Up</button>
+			</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

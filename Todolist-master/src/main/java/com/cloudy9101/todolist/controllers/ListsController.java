@@ -21,7 +21,7 @@ public class ListsController {
 	public @ResponseBody ModelAndView createList (@RequestParam String name) {
 		List list = new List();
 		list.setName(name);
-		listRepository.save(list);
+		listRepository.save(list);		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("listCard");

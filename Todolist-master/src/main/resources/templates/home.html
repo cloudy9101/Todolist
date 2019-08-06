@@ -11,10 +11,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	type="text/javascript"></script>
 </head>
-<body>
+<body style="background-color: #EEE0FF">
 	<nav class="navbar navbar-expand-lg navbar-light"
-		style="background-color: #e3f2fd; margin-bottom: 20px;">
-		<a class="navbar-brand" href="#">Todolist</a>
+		style="background-color: #e3f2fd; margin-bottom-color: purple; margin-bottom: 20px;">
+		<a class="navbar-brand" href="#">To-do List</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -39,7 +39,7 @@
 							</li>
 						</ul>
 						
-						<h5 class="add-todo-btn todo-title">Add new todo</h5>
+						<h5 class="add-todo-btn todo-title">Add New Task</h5>
 						<div class="new-todo-group" style="display: none;">
 							<input class="new-todo-title" type="text" />
 							<button type="button" class="new-todo-confirm btn btn-primary btn-sm" th:attr="data-list-id=${list.getId()}">Add</button>
@@ -51,7 +51,7 @@
 			<div class="card card-block add-card"
 				style="min-height: 100px; min-width: 300px;">
 				<div class="card-body">
-					<h5 class="add-card-btn card-title">Add new card</h5>
+					<h5 class="add-card-btn card-title">Add New List</h5>
 					<div class="new-card-group" style="display: none;">
 						<input class="new-card-title" type="text" />
 						<button type="button" class="new-card-confirm btn btn-primary">Add</button>

@@ -3,11 +3,11 @@
 		<div class="card-body">
 			<div class="card-title"
 				style="display: flex; justify-content: space-between;">
-				<h5 th:text="${list.name}">Card title</h5>
+				<h5 th:text="${list.name}">list title</h5>
 				<span class="remove-card-btn" th:attr="data-card-id=${list.id}">Delete</span>
 			</div>
 			
-				<h5 class="add-todo-btn todo-title">Add new todo</h5>
+				<h5 class="add-todo-btn todo-title">Add new task</h5>
 				<div class="new-todo-group" style="display: none;">
 					<input class="new-todo-title" type="text" />
 					<button type="button" class="new-todo-confirm btn btn-primary btn-sm">Add</button>

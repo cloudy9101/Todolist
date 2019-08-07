@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +22,12 @@ public class TodosController {
 	private TodoRepository todoRepository;
 	
 	@PostMapping(path="lists/{listId}/todos")
-	public @ResponseBody ModelAndView createTodo (@PathVariable Integer listId, @RequestParam String name) {
+	public @ResponseBody ModelAndView createTodo (@PathVariable Integer listId, @RequestParam String name, @CookieValue(value = "userId", defaultValue = "0") String userId) {
 		Todo todo = new Todo();
 		todo.setListId(listId);
 		todo.setName(name);
+		todo.setCreatorId(Integer.parseInt(userId));
+		
 		todoRepository.save(todo);
 		
 		ModelAndView mav = new ModelAndView();

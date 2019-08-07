@@ -36,9 +36,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView Login() {
+	public ModelAndView Login(@RequestParam String email, @RequestParam String password, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");		
+
+		User user = userRepository.findByEmail(email);
+		if(user != null && password.equals(user.getPassword())) {
+			response.addCookie(new Cookie("userId", String.valueOf(user.getId())));
+			mav = new ModelAndView("redirect:/home");
+		} else {
+			mav.setViewName("login");
+		}
 		return mav;
 	}
 	

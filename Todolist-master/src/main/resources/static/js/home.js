@@ -40,7 +40,7 @@ $(function() {
 			'.new-todo-confirm',
 			function(e) {
 				var listId = $(e.target).data('list-id');
-				var newTitle = $('.new-todo-title').val();
+				var newTitle = $(e.target).siblings('.new-todo-title').val();
 				$.ajax({
 					type : 'POST',
 					url : 'lists/' + listId + '/todos',

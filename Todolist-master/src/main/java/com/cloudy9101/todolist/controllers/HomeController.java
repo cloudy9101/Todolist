@@ -20,7 +20,7 @@ public class HomeController {
 	@Autowired
 	private TodoRepository todoRepository;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/home")
 	public ModelAndView home(Model model) {
 		Iterable<List> lists = listRepository.findAll();
 		HashMap<Integer, Iterable<Todo>> listTodos = new HashMap<Integer, Iterable<Todo>>();

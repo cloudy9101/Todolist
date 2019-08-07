@@ -1,6 +1,8 @@
 package com.cloudy9101.todolist.controllers;
 
 import javax.jws.soap.SOAPBinding.Use;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView Login() {
+	public ModelAndView Login(@RequestParam String email, @RequestParam String password, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");		
+
+		User user = userRepository.findByEmail(email);
+		if(user != null && password.equals(user.getPassword())) {
+			response.addCookie(new Cookie("userId", String.valueOf(user.getId())));
+			mav = new ModelAndView("redirect:/home");
+		} else {
+			mav.setViewName("login");
+		}
 		return mav;
 	}
 	
@@ -48,13 +57,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
-	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		Iterable<User> users = userRepository.findAll();
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("registration");
 		} else {
-			mav.setViewName("success");
+			User currentUser = userRepository.save((User)bindingResult.getTarget());
+			response.addCookie(new Cookie("userId", String.valueOf(currentUser.getId())));
+			mav = new ModelAndView("redirect:/home");
 		}
 		return mav;
 	}

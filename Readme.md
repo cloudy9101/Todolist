@@ -1,1 +1,1 @@
-## This is a normal Todolist application
+## This is a normal Todolist application built with Spring boot framework

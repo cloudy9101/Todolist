@@ -24,7 +24,7 @@ public class User {
 	@NotEmpty(message = "Please provide a valid password")
 	private String password;
 	
-	public int getId() {
+	public int _getId() {
 		return id;
 	}
 	

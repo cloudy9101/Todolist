@@ -41,7 +41,7 @@ public class UserController {
 
 		User user = userRepository.findByEmail(email);
 		if(user != null && password.equals(user.getPassword())) {
-			response.addCookie(new Cookie("userId", String.valueOf(user.getId())));
+			response.addCookie(new Cookie("userId", String.valueOf(user._getId())));
 			mav = new ModelAndView("redirect:/home");
 		} else {
 			mav.setViewName("login");
@@ -62,8 +62,10 @@ public class UserController {
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("registration");
 		} else {
-			User currentUser = userRepository.save((User)bindingResult.getTarget());
-			response.addCookie(new Cookie("userId", String.valueOf(currentUser.getId())));
+			System.out.println(user);
+
+			User currentUser = userRepository.save(user);
+			response.addCookie(new Cookie("userId", String.valueOf(currentUser._getId())));
 			mav = new ModelAndView("redirect:/home");
 		}
 		return mav;

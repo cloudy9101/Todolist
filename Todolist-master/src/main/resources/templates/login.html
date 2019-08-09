@@ -5,15 +5,18 @@
 <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
+	<div class="header">
+		<h1>To Do List</h1>
+	</div>
 	<div class="container">
-		<form th:action="@{/login}" method="POST" class="form-login">
-			<h3 class="form-heading">Login</h3>
-			<input type="text" id="email" name="email" th:placeholder="Email">
+		<form th:action="@{/login}" method="POST">
+			<input type="text" id="email" name="email" class="email" th:placeholder="Email">
 			<br/><br/>
-			<input type="password" id="password" name="password" th:placeholder="Password">
+			<input type="password" id="password" name="password" class="password" th:placeholder="Password">
 			<br/><br/>			
-			<button class="submit" name="submit" value="login" type="Submit" th:text="Login"></button>
+			<button class="submit" name="submit" value="login" type="Submit" th:text="Login"></button><br>
 		</form>	
+		<p>Don't have an account? Click to sign up</p>
 		<a href="/registration" method="get">
 			<button class="submit">Sign Up</button>
 		</a>	

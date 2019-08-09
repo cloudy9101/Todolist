@@ -4,13 +4,13 @@ body{
   margin: 0 auto 0 auto;  
   width:100%; 
   text-align:center;
-  margin: 20px 0px 20px 0px;   
+  margin: 0px 0px 20px 0px;   
 }
 
 p{
   font-size:12px;
   text-decoration: none;
-  color:#ffffff;
+  color:black;
 }
 
 h1{
@@ -20,10 +20,12 @@ h1{
 
 .container{
   background:white;
-  width:300px;
+  width:450px;
+  height: 250px;
   border-radius:6px;
-  margin: 0 auto 0 auto;
-  padding:0px 0px 70px 0px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding:40px 0px 70px 0px;
   border: #2980b9 4px solid; 
 }
 
@@ -33,8 +35,6 @@ h1{
   border-bottom: #ccc 2px solid;
   padding: 8px;
   width:250px;
-  color:#AAAAAA;
-  margin-top:10px;
   font-size:1em;
   border-radius:4px;
 }
@@ -59,7 +59,7 @@ h1{
 
 .submit{
   background:#2ecc71;
-  width:125px;
+  width:150px;
   padding-top:5px;
   padding-bottom:5px;
   color:white;
@@ -67,9 +67,7 @@ h1{
   border: #27ae60 1px solid;
   
   margin-top:20px;
-  margin-bottom:20px;
-  float:left;
-  margin-left:16px;
+  margin-bottom:30px;
   font-weight:800;
   font-size:0.8em;
 }
@@ -80,4 +78,23 @@ h1{
 
 .login-return{
 	margin-top:20px;
+}
+
+h1 { 
+	color: #ffffff; 
+	font-family: 'Raleway',sans-serif; 
+	font-size: 62px; 
+	font-weight: 800; 
+	line-height: 72px; 
+	margin: 0 0 24px; 
+	text-align: center; 
+	text-transform: uppercase; 
+}
+
+.header {
+	text-align: center;
+	padding: 45px;
+	margin-top: 0px;
+	background: #00CCFF;
+	color: white;
 }
